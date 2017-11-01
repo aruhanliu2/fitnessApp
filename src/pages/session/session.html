@@ -1,0 +1,83 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>session</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-item text-center>
+		<h1 text-center>{{ session.subcategory }}</h1>
+		<ion-img width="20px" src="assets/imgs/profile-icon.png"></ion-img>
+		By {{ session.instructor }}
+	</ion-item>
+
+	<p text-center>Live in {{ session.time }}</p>
+
+	<ion-item>
+		<h1 text-center>${{ session.price }}</h1>
+		<p text-center>{{ session.student_no }} people registered</p>
+	</ion-item>
+
+	<ion-item>
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<h2>{{ session.duration }}</h2>
+					<p>min</p>
+				</ion-col>
+				<ion-col>
+					<h2>{{ session.difficulty }}</h2>
+					<p>intensity</p>
+				</ion-col>
+				<ion-col>
+					<h2>{{ session.level }}</h2>
+					<p>level</p>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-item>
+
+	<ion-item>
+		<ion-row>
+			<ion-col>
+				<p>Equipment</p>
+				<h2>{{ session.equipment }}</h2>
+			</ion-col>
+			<ion-col>
+				<p>Target</p>
+				<h2>{{ session.target }}</h2>
+			</ion-col>
+		</ion-row>
+	</ion-item>
+
+	<ion-item>
+		<h1 text-center>{{ session.instructor }}</h1>
+		<ion-icon name="thumbs-up"></ion-icon>
+	</ion-item>
+
+	<ion-item>
+		<h3>What you can expect</h3>
+		<section id="cd-timeline" class="cd-container">
+			<div *ngFor="let item of session.items">
+				<div class="cd-timeline-block">
+					<div class="cd-timeline-picture royal">
+					</div>
+					<div class="cd-timeline-content royal">
+						<h3>{{ item.duration }} min</h3>
+						<h2>{{ item.name }}</h2>
+					</div>	
+				</div>
+			</div>
+     	</section>
+
+	</ion-item>
+
+	<button block ion-button [navPush]="cardPage">Register</button>
+</ion-content>
+
+
+
+

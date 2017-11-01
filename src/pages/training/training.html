@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>training</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+			<ion-row>
+				<ion-col>
+					<h3>local time</h3>
+				</ion-col>
+					<h3>session name</h3>
+				<ion-col>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<h3>session duration</h3>
+				</ion-col>
+				<ion-col>
+					<button (click)="onJoin()">
+						Join
+					</button>
+					<button (click)="onViewSession()">
+						View Session
+					</button>
+					<button (click)="onCancel()">
+						Cancel
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-item>
+	</ion-list>
+</ion-content>

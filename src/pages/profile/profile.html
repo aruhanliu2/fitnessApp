@@ -1,0 +1,170 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Profile</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-item width="120px" no-lines class="trainer-profile">
+		
+		<img height="100px" src="assets/imgs/profile-icon.png">
+	</ion-item>
+    <h2 text-center>Mason Jones</h2>
+
+	<h2>Profile</h2>
+	<form #f="ngForm" (ngSubmit)="onAddItem(f)">
+		<ion-list>
+			<ion-item>
+				<ion-label 
+					fixed>Name</ion-label>
+				<ion-input 
+					type="text" 
+					name="name" 
+					placeholder="Lily"
+					ngModel
+					required></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label 
+					fixed>Gender</ion-label>
+				<ion-input 
+					type="text" 
+					name="gender" 
+					placeholder="female"
+					ngModel
+					required></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label 
+					fixed>Height</ion-label>
+				<ion-input 
+					type="text" 
+					name="height" 
+					placeholder="180"
+					ngModel
+					required></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label 
+					fixed>Weight</ion-label>
+				<ion-input 
+					type="text" 
+					name="weight" 
+					placeholder="90"
+					ngModel
+					required></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label 
+					fixed>Goals</ion-label>
+				<ion-input 
+					type="text" 
+					name="goals" 
+					placeholder="fit"
+					ngModel
+					required></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label 
+					fixed>Body Fat</ion-label>
+				<ion-input 
+					type="number" 
+					name="body-fat" 
+					placeholder="body fat"
+					ngModel
+					required></ion-input>
+			</ion-item>
+		</ion-list>
+		<button 
+			ion-button 
+			type="submit" 
+			block
+			[disabled]="!f.valid">Save</button>
+	</form>
+
+	<h2>Account</h2>
+	<form #f="ngForm" (ngSubmit)="onAddItem(f)">
+		<ion-list>
+			<ion-item>
+				<ion-label
+					fixed>
+					<ion-icon name="mail"></ion-icon>
+					Email
+				</ion-label>
+				<ion-input 
+					type="text" 
+					name="email" 
+					placeholder="example@happy.com"
+					ngModel
+					required></ion-input>
+			</ion-item>
+			<h3>Change Password</h3>
+			<ion-item>
+				<ion-label 
+					fixed>
+					<ion-icon name="unlock"></ion-icon>
+					Enter New Password
+				</ion-label>
+				<ion-input 
+					type="text" 
+					name="new-password" 
+					placeholder="password"
+					ngModel
+					required></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label 
+					fixed>
+					<ion-icon name="unlock"></ion-icon>
+					Re-enter New Password
+				</ion-label>
+				<ion-input 
+					type="text" 
+					name="re-enter-password" 
+					placeholder="password"
+					ngModel
+					required></ion-input>
+			</ion-item>
+		</ion-list>
+		<button 
+			ion-button 
+			type="submit" 
+			block
+			[disabled]="!f.valid">Save</button>
+	</form>
+
+	<h3>About</h3>
+	<ion-list>
+		<ion-item no-lines (click)="onLoadPage(faqPage)">
+			<ion-icon name="information-circle"></ion-icon>
+			FAQs
+		</ion-item>
+		<ion-item no-lines (click)="onLoadPage(privacyPage)">
+			<ion-icon name="lock"></ion-icon>
+			Privacy Policies
+		</ion-item>
+		<ion-item no-lines (click)="onLoadPage(termsPage)">
+			<ion-icon name="document"></ion-icon>
+			Terms of Services
+		</ion-item>
+		<ion-item no-lines (click)="onLoadPage(feedbackPage)">
+			<ion-icon name="chatbubbles"></ion-icon>
+			Feedback
+		</ion-item>
+	</ion-list>
+	<button ion-button block>Log Out</button>
+
+</ion-content>

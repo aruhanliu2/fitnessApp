@@ -1,0 +1,11 @@
+page-profile {
+	.trainer-profile {
+		text-align: center;
+	  	height: 100px;
+	  	.item-avatar > img:first-child {
+	    max-width: 100px;
+	    max-height: 100px;
+	  }
+	}
+
+}

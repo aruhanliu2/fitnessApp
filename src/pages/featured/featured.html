@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-searchbar (ionInput)="getTrainers($event)"></ion-searchbar>
+	<ion-slides pager>
+	  <ion-slide *ngFor="let premium of premiums">
+  		<ion-row>
+  			<p>Premium Class</p>
+  		</ion-row>
+  		<ion-row>
+  			<ion-col>
+  				<h3>Live in {{ premium.time }}</h3>
+  			</ion-col>
+  			<ion-col>
+  				<h1>${{ premium.price }}</h1>
+  			</ion-col>
+  		</ion-row>
+  		<ion-row>
+   			<ion-col>
+   				<h1>{{ premium.subcategory }}</h1>
+  			</ion-col>
+  			<ion-col>
+  				<p>{{ premium.duration }}</p>
+  			</ion-col>
+  		</ion-row>
+  		<ion-row>
+  			<ion-col>
+  				<p>By {{ premium.instructor }}</p>
+  			</ion-col>
+  			<ion-col>
+  				<p>{{ premium.students_no }} people registered</p>
+  			</ion-col>
+  		</ion-row>
+
+	  </ion-slide>
+	</ion-slides>
+
+	<ion-list>
+		<ion-item 
+		*ngFor="let sessionGroup of sessionCollection">
+			<h3>{{ sessionGroup.category }}</h3>
+			<button
+			ion-item
+			border
+			*ngFor="let session of sessionGroup.sessions"
+			[navPush]="sessionPage"
+			[navParams]="session">
+				<h3>{{ session.duration }}</h3>
+				<h3>{{ session.subcategory }}</h3>
+			</button>
+		</ion-item>
+	</ion-list>
+</ion-content>

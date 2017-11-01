@@ -1,0 +1,31 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-searchbar (ionInput)="getTrainers($event)"></ion-searchbar>
+	<ion-list>
+		<ion-item 
+			*ngFor="let trainerGroup of trainerCollection">
+				<h3>{{ trainerGroup.category }}</h3>
+
+				<button
+					ion-item
+					*ngFor="let trainer of trainerGroup.trainers"
+					[navPush]="trainerPage"
+					[navParams]="trainer">
+					<ion-row>
+						<ion-col>
+							<img height="50px" src="assets/imgs/profile-icon.png">
+						</ion-col>
+						<ion-col>
+							<p>{{ trainer.person }}<p>
+							<ion-icon name="map"></ion-icon>
+							{{ trainer.location }}
+						</ion-col>
+					</ion-row>
+				</button>
+
+		</ion-item>
+	</ion-list>
+</ion-content>
