@@ -1,0 +1,183 @@
+<style>
+.header {
+	height: 64px;
+	width: 376px;
+	text-align: center;
+	background-color: #313732;
+	box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+	position: absolute;
+}
+
+.wrapper2 {
+	position: relative;
+}
+
+
+.title {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 16px;
+	line-height: 21px;
+
+	position: absolute;
+	margin-top: 30px;
+}
+
+
+.back-white {
+	position: absolute;
+	margin-left: 19px;
+	margin-top: 35px;
+}
+
+.light-gray-thin {
+	height: 6px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+
+	margin-top: 14px;
+	margin-bottom: 14px;
+}
+
+.black-title {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 18px;
+	line-height: 25px;
+
+	margin-left: 24px;
+	margin-top: 20px;
+}
+
+ion-range {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+.range-bar {
+	margin-left: 24px;
+	margin-right: 24px;
+}
+
+.black-body {
+	color: #252A26;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+
+	margin-left: 9px;
+	margin-top: 11px;
+	display: inline-block;
+}
+
+.gray-body {
+	color: #898989;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+	text-align: center;
+}
+
+.selected-text {
+	color: #FFFFFF;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 19px;
+	text-align: center;
+}
+
+.gray-box {
+	height: 42px;
+	width: 130px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+
+	margin-top: 10px;
+}
+
+.gray-box-small {
+	height: 42px;
+	width: 104px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+
+	margin-top: 9px;
+}
+
+.selected {
+	background-color: #3E9E9E;
+}
+
+</style>
+
+
+<ion-content>
+	<!--black header-->
+	<div class="wrapper2">
+		<div class="header">
+			<div class="back-white" (click)="onGoBack()">
+				<img src="assets/imgs/back-white.png">
+			</div>
+			<div style="margin-left: 169px;" class="title">Filters</div>
+			<div style="margin-left: 306px;" class="title">Reset All</div>
+		</div>	
+	</div>
+
+	<div style="margin-top: 84px;">
+
+		<!--Goal-->
+		<div class="black-title">Goal</div>
+		<ion-row>
+			<div id="btn1" (click)="onToggle1()" style="margin-left: 24px" class="gray-box-small">
+				<div id="t1" style="margin-top: 12px;" class="gray-body">Lose Weight</div>
+			</div>
+			<div id="btn2" (click)="onToggle2()" style="margin-left: 9px; display: inline-block;" class="gray-box-small">
+				<div id="t2" style="margin-top: 12px;" class="gray-body">Build Muscle</div>
+			</div>
+			<div id="btn3" (click)="onToggle3()" style="margin-left: 9px; display: inline-block;" class="gray-box-small">
+				<div id="t3" style="margin-top: 12px;" class="gray-body">Get Fitter</div>
+			</div>
+		</ion-row>
+		<div class="light-gray-thin"></div>
+
+		<!--Gender-->
+		<div class="black-title">Gender</div>
+		<ion-row>
+			<div id="btn4" (click)="onToggle4()" style="margin-left: 24px" class="gray-box-small">
+				<div id="t4" style="margin-top: 12px;" class="gray-body">Male</div>
+			</div>
+			<div id="btn5" (click)="onToggle5()" style="margin-left: 9px; display: inline-block;" class="gray-box-small">
+				<div id="t5" style="margin-top: 12px;" class="gray-body">Female</div>
+			</div>
+		</ion-row>
+		<div class="light-gray-thin"></div>
+
+		<!--price-->
+		<div class="black-title">Price Range</div>
+
+		<ion-row>
+			<div style="margin-left: 24px;" class="black-body">$10</div>
+			<div style="margin-left: 263px;" class="black-body">$200</div>
+		</ion-row>
+
+      	<ion-range class="range-bar" min="0" max="200" dualKnobs="true" pin="true" [(ngModel)]="structure1" color="#3E9E9E"></ion-range>
+
+		<div class="light-gray-thin"></div>
+
+		<!--certification-->
+		<div class="black-title">Certification</div>
+		<ion-row style="margin-bottom: 20px">
+			<div id="btn12" (click)="onToggle12()" style="margin-left: 24px" class="gray-box-small">
+				<div id="t12" style="margin-top: 12px;" class="gray-body">Certificated</div>
+			</div>
+			<div id="btn13" (click)="onToggle13()" style="margin-left: 9px; display: inline-block;" class="gray-box">
+				<div id="t13" style="margin-top: 12px;" class="gray-body">Non-certificated</div>
+			</div>
+		</ion-row>
+
+	</div>
+
+</ion-content>

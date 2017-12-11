@@ -1,0 +1,310 @@
+<style>
+
+button {
+	height: 55px;
+	width: 327px;
+	border-radius: 5px;
+	background-color: #FF4C00;
+	margin-left: 24px;
+	margin-top: 7px;
+	margin-bottom: 17px;
+
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+}
+
+.wrapper {
+	position: relative;
+}
+
+.header {
+	height: 64px;
+	width: 376px;
+	text-align: center;
+	background-color: #313732;
+	box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+	position: absolute;
+}
+
+.title {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 16px;
+	line-height: 21px;
+
+	margin-top: 30px;
+}
+
+.big-text {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 18px;
+	line-height: 25px;
+
+	margin-left: 24px;
+	margin-top: 20px;
+}
+
+.text {
+	color: #252A26;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.gray-text {
+	color: #898989;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.back-white {
+	position: absolute;
+	margin-left: 19px;
+	margin-top: 35px;
+}
+
+input::placeholder {
+	padding-left: 14px;
+
+	color: #898989;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.card-number {
+	height: 40px;
+	width: 327px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+	margin-left: 24px;
+	margin-top: 54px;
+}
+
+.left-box {
+	height: 40px;
+	width: 158px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+
+	margin-left: 24px;
+	display: inline-block;
+}
+
+.right-box {
+	height: 40px;
+	width: 158px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+
+	margin-left: 11px;
+	display: inline-block;
+}
+
+.check-box {
+	height: 24px;
+	width: 24px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+	margin-top: 14px;
+	margin-left: 24px;
+}
+
+.session-time {
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 19px;
+
+	left: 24px;
+	top: 18px;
+	position: absolute;
+}
+
+.session-subcategory {
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 41px;
+
+	left: 24px;
+	top: 45px;
+	position: absolute;
+}
+
+.session-price {
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 26px;
+	font-weight: bold;
+	line-height: 35px;
+
+	right: 24px;
+	top: 51px;
+	position: absolute;
+}
+
+.light-gray-thin {
+	height: 6px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+}
+
+input {
+	margin-top: 0px !important;
+}
+
+/* Customize the label (the container) */
+.container {
+  display: inline-block;
+  position: relative;
+  margin-left: 24px;
+  margin-top: 14px;
+
+	height: 24px;
+	width: 24px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 6px;
+  top: 4px;
+  width: 6px;
+  height: 12px;
+  border: solid #313732;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+</style>
+
+
+<ion-content>
+	<div class="wrapper">
+		<div class="header">
+			<div class="back-white" (click)="onGoBack()">
+				<img src="assets/imgs/back-white.png">
+			</div>
+			<div class="title">Register</div>
+		</div>	
+	</div>
+
+	<div style="margin-top: 64px;" class="wrapper">
+		<img src="{{ session.image_payment }}">
+		<div class="session-time">
+			Live in 1hr {{ session.start_time }}-{{ session.end_time }}
+		</div>
+		<div class="session-subcategory">
+			{{ session.subcategory }}
+		</div>
+		<div class="session-price">
+			{{ session.price }}
+		</div>
+	</div>
+
+	<div class="big-text">
+		Debit/Credit Card
+	</div>
+
+	<form>
+		<div style="margin-top: 9px;">
+			<input class="card-number" type="text" name="card-number" placeholder="Card Number">
+		</div>
+		<ion-row>
+			<div style="margin-top: 9px;">
+				<div >
+					<input class="left-box" style="float: left" type="text" name="month" placeholder="Month">
+					<!--<ion-select style="display: inline-block;">
+				    <ion-option value="f">Female</ion-option>
+				    <ion-option value="m">Male</ion-option>
+				  	</ion-select>-->
+				</div>
+			</div>
+			<div style="margin-top: 9px;">
+				<input class="right-box" type="text" name="year" placeholder="Year">
+			</div>
+		</ion-row>
+		<ion-row>
+			<div style="margin-top: 9px;">
+				<input class="left-box" type="text" name="security-code" placeholder="Security Code">
+			</div>
+			<div style="margin-top: 9px;">
+				<input class="right-box" type="text" name="billing-zip-code" placeholder="Billing Zip Code">
+			</div>
+		</ion-row>
+	</form>
+
+	<ion-row>
+		<label class="container">
+		  <input type="checkbox">
+		  <span class="checkmark"></span>
+		</label>
+
+		<div class="text" style="display: inline-block; margin-left: 9px; margin-top: 17px">
+			Save for future purchase
+		</div>
+	</ion-row>
+
+	<div style="margin-top: 14px; margin-bottom: 14px;" class="light-gray-thin"></div>
+
+	<ion-row>
+		<div style="text-align: center;" class="left-box">
+			<img style="margin-top: 11px;" src="assets/imgs/paypal-icon.png">
+		</div>
+		<div style="text-align: center;" class="right-box">
+			<img style="margin-top: 9px;" src="assets/imgs/applepay-icon.png">
+		</div>
+	</ion-row>
+
+	<div style="margin-top: 14px; margin-bottom: 20px;" class="light-gray-thin"></div>
+
+	<div class="big-text">
+		Cancellation Policy: Strict
+	</div>
+
+	<div class="text" style="margin-left: 24px; margin-top: 9px;">
+		To get full refund, cancellation must be made 1 hour prior to session's start time.
+	</div>
+
+	<button (click)="completePurchase()">
+		Complete Purchase
+	</button>
+</ion-content>
+
+

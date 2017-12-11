@@ -1,0 +1,94 @@
+<style>
+.big-text {
+	height: 82px;
+	width: 244px;
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 41px;
+	text-align: center;
+
+	margin-left: 66px;
+	margin-top: 91px;
+}
+
+.small-text {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 20px;
+	line-height: 27px;
+}
+
+.rectangle {
+	height: 100px;
+	width: 375px;
+	background-color: rgba(49,55,50,0.55);
+}
+
+.selected-rectangle {
+	height: 100px;
+	width: 375px;
+	background-color: rgba(255,255,255,0.7);
+}
+
+.selected-text {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 20px;
+	line-height: 27px;
+	text-align: center;
+}
+
+.background {
+  background: linear-gradient(-179deg, #FE8C00 0%, #F83600 100%);
+  height: 667px;
+  width: 375px;
+}
+
+.white-button {
+	height: 55px;
+	width: 327px;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+
+	color: #FC3F1B;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+	text-align: center;
+
+	margin-left: 24px;
+	margin-top: 40px;
+}
+
+.text {
+	color: #FFFFFF;
+	font-family: "SF Pro Text";
+	font-size: 16px;
+	line-height: 19px;
+
+	text-decoration: underline;
+	margin-left: 319px;
+	margin-top: 20px;
+}
+
+
+</style>
+<ion-content class="background">
+	<div class="big-text">What goal do you want to achieve?</div>
+	<div style="position: relative; margin-top: 30px">
+		<div style="position: absolute; padding-left: 133.5px; margin-top: 38px" class="small-text">Lose Weight</div>
+		<img src="assets/imgs/goal1.png">
+		<div style="position: absolute; padding-left: 133.5px; margin-top: 38px" class="small-text">Build Muscle</div>
+		<img src="assets/imgs/goal2.png">
+		<div style="position: absolute; padding-left: 144.5px; margin-top: 38px" class="small-text">Get Fitter</div>
+		<img src="assets/imgs/goal3.png">
+	</div>
+	<button class="white-button" [navPush]="informationPage">Next</button>
+	<div [navPush]="informationPage" class="text">Skip</div>
+
+	<button (click)="play()">play video</button>
+</ion-content>

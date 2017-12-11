@@ -3,11 +3,9 @@ import { Training } from "../models/training";
 export class TrainingsService {
 	private trainings: Training[] = [];
 
-	addTraining(subcategory: string,
-		date: string,
-		time: string,
-		duration: string) {
-		this.trainings.push(new Training(subcategory, date, time, duration));
+	addTraining(training: Training) {
+		this.trainings.push(training);
+		console.log(training);
 	}
 
 	getTrainings() {

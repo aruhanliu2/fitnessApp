@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading } from 'ionic-angular';
-import { FormGroup, FormControl, Validators, FormArray } from "@angular/forms";
 import { TermsPage } from "../../pages/terms/terms";
 import { FeedbackPage } from "../../pages/feedback/feedback";
 import { FaqPage } from "../../pages/faq/faq";
 import { PrivacyPage } from "../../pages/privacy/privacy";
-
+import { CreatePage } from '../../pages/create/create';
 
 declare var cordova: any;
 
@@ -18,6 +17,7 @@ export class ProfilePage {
 	termsPage = TermsPage;
 	faqPage = FaqPage;
 	privacyPage = PrivacyPage;
+  createPage = CreatePage;
 
   lastImage: string = null;
   loading: Loading;
@@ -36,5 +36,6 @@ export class ProfilePage {
   onLoadPage(page: any) {
     this.navCtrl.push(page);
   }
+
 
  }

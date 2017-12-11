@@ -1,17 +1,318 @@
-<ion-header>
-	<ion-navbar>
-    <ion-buttons start>
-      <button ion-button icon-only menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-buttons>
-	</ion-navbar>
-</ion-header>
+<style>
 
-<ion-content padding>
-	<ion-tabs selectedIndex="0" tabsPlacement="top">
-		<ion-tab [root]="findtrainerPage" tabTitle="Find a Trainer" tabsHideOnSubPages="true"></ion-tab>
-		<ion-tab [root]="mytrainerPage" tabTitle="My Trainers"
-		tabsHideOnSubPages="true"></ion-tab>
-	</ion-tabs>
+.light-gray-thin {
+	height: 6px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+
+	margin-top: 20px;
+}
+
+.light-gray-thick {
+	height: 48px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+	box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	position: relative;
+}
+
+.wrapper {
+	position: relative;
+}
+
+.gray-box {
+	height: 22px;
+	width: 62px;
+	border-radius: 5px;
+	background-color: #9B9B9B;
+
+	margin-top: 9px;
+}
+
+.icon {
+	margin-left: 64px;
+	margin-top: 9px;
+}
+
+.no-padding {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.orange-box {
+	height: 91px;
+	width: 158px;
+	border: 1px solid #FF5722;
+	border-radius: 5px;
+}
+
+.search-text {
+	color: #898989;
+	font-family: "Oswald Regular";
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.black-text-large {
+	color: #252A26;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+
+	margin-left: 14px;
+	margin-top: 6px;
+}
+
+.black-box-small {
+	height: 42px;
+	width: 104px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+
+	margin-top: 9px;
+}
+
+.black-text-small {
+	color: #252A26;
+	font-family: "SF Pro Text";
+	font-size: 12px;
+	line-height: 19px;
+
+	margin-top: 11px;
+}
+
+.gray-text-small {
+	color: #898989;
+	font-family: "SF Pro Text";
+	font-size: 12px;
+	line-height: 19px;
+	text-align: center;
+
+	margin-top: 4px;
+}
+
+.type {
+	font-family: SFProText-Regular;
+	font-size: 14px;
+	color: #313732;
+	letter-spacing: -0.15px;
+	line-height: 19px;
+
+	text-align: center;
+}
+
+.gray-text-large {
+	color: #898989;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;	
+	width: 233px;
+
+	margin-left: 18px;
+}
+
+.title-font {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 18px;
+	line-height: 25px;
+
+	margin-left: 24px;
+}
+
+.white-text {
+	color: #FFFFFF;
+	font-family: "SF Pro Text";
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 19px;
+	text-align: center;
+
+	padding-top: 2px;
+}
+
+.search-bar {
+  height: 64px;
+  width: 376px;
+  background-color: rgba(248,248,248,0.82);
+  box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+}
+
+.search-bar-icon {
+  margin-left: 24px;
+  margin-top: 37px;
+
+  float: left;
+  display: inline-block;
+}
+
+.search-bar-text {
+  color: #898989;
+  font-family: "Oswald Regular";
+  font-size: 16px;
+  line-height: 22px;
+
+  margin-left: 8px;
+  margin-top: 32px;
+  display: inline-block;
+}
+
+.microphone {
+  margin-left: 199px;
+  margin-top: 33.46px;
+
+  display: inline-block;
+}
+
+.view-all {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+</style>
+
+<ion-content>
+  <div class="search-bar">
+    <img class="search-bar-icon" src="assets/imgs/search-icon.png">
+    <div class="search-bar-text">Search trainers</div>
+    <img class="microphone" src="assets/imgs/microphone.png">
+  </div>
+
+		<div class="title-font"
+			style="margin-left: 24px; margin-top: 20px;">Find your personal trainer
+		</div>
+
+		<ion-row class="no-padding">
+			<ion-col [navPush]="availabletrainerPage" class="no-padding">
+				<div class="orange-box" style="margin-top: 10px; margin-left: 24px;">
+					<img class="icon" src="assets/imgs/icon-muscle-orange.png">
+					<div class="black-text-large">Start training today</div>
+					<div class="gray-text-small">Find available trainers</div>
+				</div>
+			</ion-col>
+
+			<ion-col [navPush]="scheduletrainerPage" class="no-padding">
+				<div class="orange-box" style="margin-left: 11px; margin-top: 10px;">
+					<img class="icon" src="assets/imgs/icon-calendar-orange.png">
+					<div class="black-text-large">Start training later</div>
+					<div class="gray-text-small">Set a schedule</div>
+				</div>
+			</ion-col>
+		</ion-row>
+
+	<div class="light-gray-thick">
+		<div style="margin-top: 14px; position: absolute;" class="title-font">
+			My Trainers
+		</div>
+	</div>
+
+	<ion-row *ngFor="let trainer of myTrainers" [navPush]="trainerPage" [navParams]="trainer" style="margin-left: 24px; margin-top: 20px">
+		<div style="float: left">
+			<img src="assets/imgs/profile-large.png">
+			<div class="gray-box">
+				<div class="white-text">{{ trainer.category }}</div>
+			</div>
+		</div>
+		<div style="display: inline-block;">
+			<ion-row>
+				<div style="margin-left: 20px;" class="title-font">{{ trainer.name }}</div>
+				<div class="title-font">{{ trainer.price }}</div>
+			</ion-row>
+			<ion-row>
+				<div style="margin-left: 20px; margin-top: 13px">
+			    	<img src="assets/imgs/star.png">
+			    	<img src="assets/imgs/star.png">
+			    	<img src="assets/imgs/star.png">
+			    	<img src="assets/imgs/star.png">
+			    	<img src="assets/imgs/star-half.png">
+	    		</div>
+	    		<div style="margin-left: 4px" class='black-text-small'>(4)</div>
+	    		<img style="margin-bottom: 11px; margin-top: 11px; margin-left: 9px;" src="assets/imgs/certification-icon.png">
+	    		<div style="margin-left: 4px;" class="black-text-small">{{ trainer.certification }}</div>
+    		</ion-row>
+    		<div class="gray-text-large">{{ trainer.slogan }}</div>
+		</div>
+	</ion-row>
+
+	
+
+
+	<div class="light-gray-thick">
+		<div>
+			<ion-row>
+				<div style="margin-top: 14px;" class="title-font">Picks for You</div>
+				<div style="margin-left: 120px; margin-top: 17px" class="view-all">View all</div>
+				<img style="height: 13px; width: 6.5px; margin-left: 5px; margin-top: 21px" src="assets/imgs/forward-black.png">
+			</ion-row>
+		</div>
+	</div>
+
+	<ion-row *ngFor="let trainer of trainers" [navPush]="trainerPage" [navParams]="trainer" style="margin-top: 20px">
+	<div style="margin-left: 24px;">
+		<div style="float: left">
+			<img src="assets/imgs/profile-large.png">
+			<div class="gray-box">
+				<div class="white-text">{{ trainer.category }}</div>
+			</div>
+		</div>
+		<div style="display: inline-block;">
+			<ion-row>
+				<div style="margin-left: 20px;" class="title-font">{{ trainer.name }}</div>
+				<div class="title-font">{{ trainer.price }}</div>
+			</ion-row>
+			<ion-row>
+				<div style="margin-left: 20px; margin-top: 13px">
+			    	<img src="assets/imgs/star.png">
+			    	<img src="assets/imgs/star.png">
+			    	<img src="assets/imgs/star.png">
+			    	<img src="assets/imgs/star.png">
+			    	<img src="assets/imgs/star-half.png">
+	    		</div>
+	    		<div style="margin-left: 4px" class='black-text-small'>(4)</div>
+	    		<img style="margin-bottom: 11px; margin-top: 11px; margin-left: 9px;" src="assets/imgs/certification-icon.png">
+	    		<div style="margin-left: 4px;" class="black-text-small">{{ trainer.certification }}</div>
+    		</ion-row>
+    		<div class="gray-text-large">{{ trainer.slogan }}</div>
+		</div>
+	</div>
+		<div class="light-gray-thin"></div>
+	</ion-row>
+
+	<div class="light-gray-thick">
+		<div style="padding-top: 14px;" class="title-font">View by Type</div>
+	</div>
+
+		<!--focus-->
+		<ion-row>
+			<div id="btn6" (click)="onToggle6()" style="margin-left: 24px" class="black-box-small">
+				<div id="t6" style="margin-top: 12px;" class="type">Strength</div>
+			</div>
+			<div id="btn7" (click)="onToggle7()" style="margin-left: 9px; display: inline-block;" class="black-box-small">
+				<div id="t7" style="margin-top: 12px;" class="type">Yoga</div>
+			</div>
+			<div id="btn8" (click)="onToggle8()" style="margin-left: 9px; display: inline-block;" class="black-box-small">
+				<div id="t8" style="margin-top: 12px;" class="type">HIIT</div>
+			</div>
+		</ion-row>
+		<ion-row>
+			<div id="btn9" (click)="onToggle9()" style="margin-left: 24px" class="black-box-small">
+				<div id="t9" style="margin-top: 12px;" class="type">Pilates</div>
+			</div>
+			<div id="btn10" (click)="onToggle10()" style="margin-left: 9px; display: inline-block;" class="black-box-small">
+				<div id="t10" style="margin-top: 12px;" class="type">Self Defense</div>
+			</div>
+			<div id="btn11" (click)="onToggle11()" style="margin-left: 9px; display: inline-block;" class="black-box-small">
+				<div id="t11" style="margin-top: 12px;" class="type">Nurtition</div>
+			</div>
+		</ion-row>
+		<div class="light-gray-thin"></div>
+
+
+
 </ion-content>

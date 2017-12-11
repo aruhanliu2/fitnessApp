@@ -1,0 +1,56 @@
+<style>
+.wrapper {
+	position: relative;
+}
+
+.header {
+	height: 64px;
+	width: 376px;
+	text-align: center;
+	background-color: #313732;
+	box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+	position: absolute;
+}
+
+.title {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 16px;
+	line-height: 21px;
+
+	margin-top: 30px;
+}
+.back-white {
+	position: absolute;
+	margin-left: 19px;
+	margin-top: 35px;
+}
+
+.background {
+	background-color: black;
+}
+</style>
+<ion-content (click)="goBack()" class="background">
+	<div class="wrapper" (click)="goBack()">
+		<div (click)="onGoBack()" class="header">
+			<div class="back-white" [navPush]="trainerPage" (click)="onGoBack()">
+				<img src="assets/imgs/back-white.png">
+			</div>
+			<div class="title">Russell Horton</div>
+		</div>	
+	</div>
+	<ion-slides pager>
+		<ion-slide>
+			<img src="assets/imgs/trainer-picture1.png">
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/imgs/trainer-picture2.png">
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/imgs/trainer-picture3.png">
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/imgs/trainer-picture4.png">
+		</ion-slide>
+	</ion-slides>
+</ion-content>

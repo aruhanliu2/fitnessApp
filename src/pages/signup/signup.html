@@ -1,41 +1,139 @@
-<ion-header>
+<style>
+input {
+    color: white;
+}
 
-  <ion-navbar>
-    <ion-buttons start>
-      <button ion-button icon-only menuToggle>
-        <ion-icon name="menu"></ion-icon>
+.signup {
+  height: 55px;
+  width: 273px;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  margin-left: 51px;
+  margin-top: 20px;
+
+}
+
+.input-border {
+  box-sizing: border-box;
+  height: 49px;
+  width: 274px;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  margin-left: 51.5px;
+  margin-top: 19px;
+}
+
+.signup-text {
+  color: #FC3F1B;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+  text-align: center;
+}
+
+.text {
+  color: #FFFFFF;
+  font-family: "SF Pro Text";
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.background {
+  background: linear-gradient(-179deg, #FE8C00 0%, #F83600 100%);
+  height: 667px;
+  width: 375px;
+
+  position: relative;
+}
+
+input::placeholder {
+  opacity: 0.8;
+  color: #FFFFFF;
+  font-family: "SF Pro Text";
+  font-size: 14px;
+  line-height: 19px;
+
+  margin-top: 15.5px;
+}
+
+input {
+  background-color: transparent;
+  box-sizing: border-box;
+  height: 49px;
+  width: 274px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+
+  padding-left: 19px !important;
+}
+
+.facebook {
+  box-sizing: border-box;
+  height: 43px;
+  width: 131px;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  background-color: #3B5998;
+  box-shadow: inset 0 0.5px 0 0 #C8C7CC, inset 0 -0.5px 0 0 #C8C7CC, 0 0 20px 0 rgba(0,0,0,0.2);
+}
+
+.google {
+  box-sizing: border-box;
+  height: 43px;
+  width: 131px;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  background-color: #DC4E41;
+  box-shadow: inset 0 0.5px 0 0 #C8C7CC, inset 0 -0.5px 0 0 #C8C7CC, 0 0 20px 0 rgba(0,0,0,0.2);
+}
+
+
+
+</style>
+
+
+<ion-content class="background">
+  <form style="margin-top: 121.5px;" #f="ngForm" (ngSubmit)="onSignup(f)">
+        <div class="input-border">
+          <input
+            type="text"
+            ngModel
+            name="name"
+            placeholder="Name"
+            required>
+        </div>
+        <div class="input-border">
+          <input
+            type="email"
+            ngModel
+            name="email"
+            placeholder="Email"
+            required>
+        </div>
+        <div class="input-border">
+          <input
+            type="password"
+            ngModel
+            name="password"
+            placeholder="Password"
+            required
+            [minlength]="6">
+        </div>
+      <button [navPush]="goalPage" type="submit" class="signup" [disabled]="!f.valid">
+        <div class="signup-text">Sign Up</div>
       </button>
-    </ion-buttons>
-    <ion-title>Signup</ion-title>
-  </ion-navbar>
+  </form>
 
-</ion-header>
-
-
-<ion-content padding>
-	<form #f="ngForm" (ngSubmit)="onSignup(f)">
-		<ion-list>
-			<ion-item>
-				<ion-label fixed>Mail</ion-label>
-				<ion-input 
-					type="email" 
-					ngModel 
-					name="email" 
-					required></ion-input>
-			</ion-item>
-			<ion-item>
-				<ion-label fixed>Password</ion-label>
-				<ion-input 
-					type="password" 
-					ngModel 
-					name="password" 
-					required
-					[minlength]="6"></ion-input>
-			</ion-item>
-		</ion-list>
-		<button ion-button block type="submit" [disabled]="!f.valid">
-			Signup
-		</button>
-	</form>
+  <div style="margin-top: 30px; text-align: center" class="text">Or sign up with</div>
+  <ion-row style="margin-top: 13.5px; margin-left: 50.5px">
+    <button style="margin-right: 12px" class="facebook">
+      <img style="margin-top: 10.5px" src="assets/imgs/facebook.png">
+    </button>
+    <button class="google">
+      <img style="margin-top: 10.5px" src="assets/imgs/google.png">
+    </button>
+  </ion-row>
 
 </ion-content>

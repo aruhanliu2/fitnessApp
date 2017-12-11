@@ -1,0 +1,116 @@
+<style>
+.big-title {
+	height: 82px;
+	width: 200px;
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 41px;
+
+	margin-top: 67px;
+	margin-left: 114px;
+}
+
+.small-title {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 20px;
+	line-height: 27px;
+	text-align: center;
+}
+
+.white-button {
+	height: 55px;
+	width: 327px;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+
+	color: #FC3F1B;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+	text-align: center;
+
+	margin-left: 24px;
+	margin-top: 90.5px;
+}
+
+.corner {
+	color: #FFFFFF;
+	font-family: "SF Pro Text";
+	font-size: 16px;
+	line-height: 19px;
+
+	text-decoration: underline;
+}
+
+.background {
+  background: linear-gradient(-179deg, #FE8C00 0%, #F83600 100%);
+  height: 667px;
+  position: relative;
+}
+
+ion-slides {
+  height: 300px;
+  margin-top: 0px !important;
+  padding: 0px !important;
+}
+
+ion-slide {
+	height: 300px;
+	margin-top: 0px !important;
+}
+
+.wrapper {
+	position: relative;
+}
+
+img {
+	position: absolute;
+}
+
+.small-title{
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 20px;
+	line-height: 27px;
+	text-align: center;
+}
+
+img {
+	margin-bottom: 32px;
+}
+
+
+</style>
+<ion-content class="background">
+	<div class="big-title">What's your body shape?</div>
+
+	<ion-slides class="wrapper" pager>
+      <ion-slide >
+      	<img src="assets/imgs/lean-male.png">
+      	<div class="small-title">Lean</div>
+      </ion-slide>
+      <ion-slide>
+      	<img src="assets/imgs/fit-male.png">
+      	<div class="small-title">Fit</div>
+      </ion-slide>
+      <ion-slide>
+      	<img src="assets/imgs/athletic-male.png">
+      	<div class="small-title">Athletic</div>
+      </ion-slide>    
+      <ion-slide>
+      	<img src="assets/imgs/plus-male.png">
+      	<div class="small-title">Plus size</div>
+      </ion-slide> 
+	</ion-slides>
+
+	<button class="white-button" (click)="onComplete()">Next</button>
+	<ion-row style="margin-left: 24px; margin-top: 20px">
+		<div (click)="onGoBack()" class="corner">Back</div>
+		<div (click)="onSkip()" style="margin-left: 258px" class="corner">Skip</div>
+	</ion-row>
+</ion-content>

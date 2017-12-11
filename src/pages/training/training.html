@@ -1,7 +1,204 @@
-<ion-header>
+<style>
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
 
-  <ion-navbar>
-    <ion-title>training</ion-title>
+ion-item {
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	margin-left: 24px !important;
+}
+
+.delete {
+	height: 96px;
+	width: 71px;
+	border-radius: 5px;
+	background-color: #FF4C00;
+	text-align: center;
+}
+
+.cancel {
+	color: #FFFFFF;
+	font-family: .SF NS Display;
+	font-size: 12px;
+	line-height: 19px;
+	text-align: center;
+}
+
+.trash {
+	margin-top: 20px;
+	color: #FFFFFF;
+	font-size: 30px;
+}
+
+.wrapper {
+	position: relative;
+	margin-left: 8px;
+}
+
+.today-class {
+	color: #252A26;
+	font-family: .SF NS Display;
+	font-size: 14px;
+	line-height: 19px;
+	margin-left: 24px;
+	margin-top: 20px;
+	margin-bottom: 9px;
+}
+
+.session-start-time {
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+
+	left: 24px;
+	top: 18px;
+	position: absolute;
+}
+
+.session-interval-sign {
+	box-sizing: border-box;
+	height: 2px;
+	width: 13px;
+	border: 1px solid #F8F8F8;
+	left: 50px;
+	top: 43px;
+}
+
+.session-end-time {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 16px;
+	line-height: 21px;
+
+	left: 31px;
+	top: 58px;
+	position: absolute;
+}
+
+.session-subcategory {
+	text-align: center;
+	left: 156px;
+	top: 35px;
+	position: absolute;
+
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+}
+
+.transparent-box {
+	height: 96px;
+	width: 233px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.calendar-box {
+	margin: 0;
+	background-color: rgba(248,248,248,0.82);
+	box-shadow: 0 -0.5px 0 0 rgba(0,0,0,0.3);
+}
+
+.weekdays li {
+    display: inline-block;
+
+    text-align: center;
+}
+
+.weekdays li .past {
+
+    font-family: .SF NS Display;
+	font-size: 14px;
+	line-height: 19px;
+    color: #898989 !important
+}
+
+.days {
+    padding: 10px 0;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #252A26;
+	font-family: .SF NS Display;
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.days li .active {
+
+    background: #FF4C00;
+    border-radius: 10px;
+    color: white !important
+}
+
+.days li .past {
+
+    font-family: .SF NS Display;
+	font-size: 14px;
+	line-height: 19px;
+    color: #898989 !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+
+.wrapper2 {
+	position: relative;
+}
+
+.header {
+	height: 64px;
+	width: 376px;
+	text-align: center;
+	background-color: #313732;
+	box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+	position: absolute;
+}
+
+.title {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 16px;
+	line-height: 21px;
+
+	margin-top: 30px;
+}
+
+.toastClass {
+	background-color: primary;
+}
+
+</style>
+
+
+<!--<ion-header class="header">
+
+  <ion-navbar class="header">
+    <ion-title>My Training</ion-title>
     <ion-buttons start>
       <button ion-button icon-only menuToggle>
         <ion-icon name="menu"></ion-icon>
@@ -9,36 +206,141 @@
     </ion-buttons>
   </ion-navbar>
 
-</ion-header>
+</ion-header>-->
 
 
-<ion-content padding>
-	<ion-list>
-		<ion-item>
-			<ion-row>
-				<ion-col>
-					<h3>local time</h3>
-				</ion-col>
-					<h3>session name</h3>
-				<ion-col>
-				</ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col>
-					<h3>session duration</h3>
-				</ion-col>
-				<ion-col>
-					<button (click)="onJoin()">
-						Join
-					</button>
-					<button (click)="onViewSession()">
-						View Session
-					</button>
-					<button (click)="onCancel()">
-						Cancel
-					</button>
-				</ion-col>
-			</ion-row>
+<ion-content>
+
+	<div class="wrapper2">
+		<div class="header">
+			<div class="title">My Training</div>
+		</div>
+	</div>
+	<img [navPush]="caloriesPage" style="margin-top: 64px" src="assets/imgs/calories-graph.png">
+
+<div class="calendar-box" [navPush]="calendarPage">
+<ul class="weekdays">
+  <li><span class="past">S</span></li>
+  <li><span class="past">M</span></li>
+  <li>T</li>
+  <li>W</li>
+  <li>T</li>
+  <li>F</li>
+  <li>S</li>
+</ul>
+
+<ul class="days">  
+  <li><span class="past">20</span></li>
+  <li><span class="past">21</span></li>
+  <li><span class="active">22</span></li>
+  <li>23</li>
+  <li>24</li>
+  <li>25</li>
+  <li>26</li>
+</ul>
+</div>
+
+<div class="today-class">
+	Today Oct 22
+</div>
+
+<!--<div
+*ngFor="let session of myTrainings"
+[navPush]="sessionPage"
+[navParams]="session"
+class="wrapper">
+	<img src="{{ session.image }}">
+	<div class="session-start-time">
+	  {{ session.start_time }}
+	</div>
+	<div class="session-interval-sign">
+	</div>
+	<div class="session-end-time">
+		{{ session.end_time }}
+	</div>
+	<div class="session-subcategory">
+	  {{ session.subcategory }}
+	</div>
+</div>-->
+
+<!--<ion-list>
+	<ion-item-sliding *ngFor="let session of myTrainings">
+		<ion-item
+		no-lines
+		[navPush]="sessionPage"
+		[navParams]="session"
+		class="wrapper">
+			<img src="{{ session.image }}">
+			<div class="session-start-time">
+			  {{ session.start_time }}
+			</div>
+			<div class="session-interval-sign">
+			</div>
+			<div class="session-end-time">
+				{{ session.end_time }}
+			</div>
+			<div class="session-subcategory">
+			  {{ session.subcategory }}
+			</div>
 		</ion-item>
-	</ion-list>
+
+		<ion-item-options (click)="onCancel()">
+			<div class="delete">
+				<ion-icon class="trash" name="trash"></ion-icon>
+				<p class="cancel">Cancel</p>
+			</div>
+		</ion-item-options>
+	</ion-item-sliding>
+</ion-list>-->
+
+
+<ion-list>
+	<ion-item-sliding *ngFor="let session of myTrainings">
+		<ion-item
+		no-lines
+		[navPush]="sessionPage"
+		[navParams]="session"
+		class="wrapper">
+			<img src="{{ session.image }}">
+			<div class="session-start-time">
+			  {{ session.start_time }}
+			</div>
+			<div class="session-interval-sign">
+			</div>
+			<div class="session-end-time">
+				{{ session.end_time }}
+			</div>
+				<div class="session-subcategory">
+				  {{ session.subcategory }}
+				</div>
+		</ion-item>
+
+		<ion-item-options (click)="onCancel()">
+			<div class="delete">
+				<ion-icon class="trash" name="trash"></ion-icon>
+				<p class="cancel">Cancel</p>
+			</div>
+		</ion-item-options>
+	</ion-item-sliding>
+</ion-list>
+
+<ion-list>
+	<div class="wrapper" *ngFor="let item of listItems">
+		
+			<div class="session-start-time">
+			  {{ item.start_time }}
+			</div>
+			<div class="session-interval-sign">
+			</div>
+			<div class="session-end-time">
+				{{ item.end_time }}
+			</div>
+			<div class="session-subcategory">
+			  {{ item.subcategory }}
+			</div>
+		</div>
+</ion-list>
+
+
+
 </ion-content>

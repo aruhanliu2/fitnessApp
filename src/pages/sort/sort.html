@@ -1,0 +1,132 @@
+<style>
+.header {
+	height: 64px;
+	width: 376px;
+	text-align: center;
+	background-color: #313732;
+	box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+	position: absolute;
+}
+
+.wrapper2 {
+	position: relative;
+}
+
+
+.title {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 16px;
+	line-height: 21px;
+
+	position: absolute;
+	margin-top: 30px;
+}
+
+.back-white {
+	position: absolute;
+	margin-left: 19px;
+	margin-top: 35px;
+}
+
+.gray-box {
+	height: 42px;
+	width: 327px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+
+	margin-left: 24px;
+}
+
+.selected {
+	background-color: #3E9E9E;
+}
+
+.black-title {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 18px;
+	line-height: 25px;
+
+	margin-left: 24px;
+	margin-top: 20px;
+	margin-bottom: 9px;
+}
+
+.gray-body {
+	color: #898989;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+	text-align: center;
+
+	margin-top: 12px;
+}
+
+.selected-text {
+	color: #FFFFFF;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 19px;
+	text-align: center;
+
+	margin-top: 12px;
+}
+
+.light-gray-thin {
+	height: 6px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+
+	margin-top: 20px;
+}
+
+.light-gray-thick {
+	height: 261px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+
+	margin-top: 20px;
+}
+
+</style>
+
+
+<ion-content>
+	<!--black header-->
+	<div class="wrapper2">
+		<div class="header">
+			<div class="back-white" (click)="onGoBack()">
+				<img src="assets/imgs/back-white.png">
+			</div>
+			<div style="margin-left: 169px;" class="title">Sort</div>
+			<div style="margin-left: 306px;" class="title">Reset All</div>
+		</div>	
+	</div>
+
+	<!--price-->
+	<div style="margin-top: 84px">
+		<div class="black-title">Price</div>
+		<div id="btn1" (click)="onToggle1()" style="margin-bottom: 10px;" class="gray-box">
+			<div id="t1" class="gray-body">Lowest</div>
+		</div>
+		<div id="btn2" (click)="onToggle2()" class="gray-box">
+			<div id="t2" class="gray-body">Highest</div>
+		</div>
+
+		<div class="light-gray-thin"></div>
+
+		<!--start time-->
+		<div class="black-title">Start Time</div>
+		<div id="btn3" (click)="onToggle3()" style="margin-bottom: 10px;" class="gray-box">
+			<div id="t3" class="gray-body">Newest</div>
+		</div>
+		<div id="btn4" (click)="onToggle4()" class="gray-box">
+			<div id="t4" class="gray-body">Oldest</div>
+		</div>
+		<div class="light-gray-thick"></div>
+	</div>
+		
+</ion-content>
+

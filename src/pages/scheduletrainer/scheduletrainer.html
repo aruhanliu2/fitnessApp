@@ -1,0 +1,178 @@
+<style>
+.wrapper {
+	position: relative;
+}
+
+.header {
+	height: 64px;
+	width: 376px;
+	text-align: center;
+	background-color: #313732;
+	box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+	position: absolute;
+}
+
+.title {
+	color: #FFFFFF;
+	font-family: "Oswald Regular";
+	font-size: 16px;
+	line-height: 21px;
+
+	margin-top: 30px;
+}
+
+.back-white {
+	position: absolute;
+	margin-left: 19px;
+	margin-top: 35px;
+}
+
+.black-title {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 18px;
+	line-height: 25px;
+
+	margin-left: 24px;
+	margin-top: 20px;
+}
+
+.light-gray-thin {
+	height: 6px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+
+	margin-top: 20px;
+}
+
+.gray-box1 {
+	height: 42px;
+	width: 158px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+}
+
+.gray-box2 {
+	height: 42px;
+	width: 158px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+}
+
+.gray-box1.active {
+	background-color: blue;
+}
+
+.gray-box2.active {
+	background-color: blue;
+}
+
+.gray-box-large {
+	height: 103px;
+	width: 327px;
+	border: 1px solid #DEDEDE;
+	border-radius: 5px;
+
+	margin-top: 9px;
+	margin-left: 24px;
+}
+
+.gray-box-large textarea {
+	color: #898989;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+
+	margin-left: 14px;
+	margin-top: 14px;
+}
+
+input[type="text"] {
+    width: 300px;
+}
+
+.black-body {
+	color: #252A26;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+
+	margin-top: 13px;
+	text-align: center;
+}
+
+.light-gray-thick {
+	height: 294px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+
+	margin-top: 20px;
+}
+
+button {
+	height: 55px;
+	width: 327px;
+	border-radius: 5px;
+	background-color: #FF4C00;
+	margin-left: 24px;
+	margin-top: 222px;
+	margin-bottom: 17px;
+
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+}
+
+</style>
+
+
+<ion-content>
+
+	<div class="wrapper">
+		<div class="header">
+			<div class="back-white" (click)="onGoBack()">
+				<img src="assets/imgs/back-white.png">
+			</div>
+			<div class="title">Set a Schedule</div>
+		</div>	
+	</div>
+
+	<div style="margin-top: 84px;">
+		<div class="black-title">Should the trainings repeat weakly?</div>
+		<!--
+		<ion-row style="margin-top: 19px">
+			<div id="#btn1" (click)="onToggleColor1()" style="margin-left: 24px;" class="gray-box1">
+				<div class="black-body">Yes</div>
+			</div>
+			<div id="#btn2" (click)="onToggleColor2()" style="margin-left: 11px;" class="gray-box2">
+				<div class="black-body">No</div>
+			</div>
+		</ion-row>
+	-->
+
+		  <ion-segment>
+    		<ion-segment-button style="width: 20px;" value="Yes">
+    			Yes
+    		</ion-segment-button>
+    		<ion-segment-button style="width: 20px;" value="No">
+    			No
+    		</ion-segment-button>
+  		  </ion-segment>
+
+		<div class="light-gray-thin"></div>
+
+		<div class="black-title">Message</div>
+		<div class="gray-box-large">
+			<textarea placeholder="Tell Russell about yourself and your goals." cols="40" rows="4"></textarea>
+		</div>
+	</div>
+
+	<div class="light-gray-thick">
+		<!--<div (click)="onGoScheduleNo()">Non-repeat</div>-->
+		<button (click)="onGoScheduleYes()">Next</button>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</ion-content>

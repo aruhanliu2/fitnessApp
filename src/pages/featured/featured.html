@@ -1,61 +1,421 @@
-<ion-header>
-  <ion-navbar>
-    <ion-buttons start>
-      <button ion-button icon-only menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
+<style>
 
-<ion-content padding>
-	<ion-searchbar (ionInput)="getTrainers($event)"></ion-searchbar>
+ion-slides {
+  height: 186px;
+  margin-bottom: 20px !important;
+}
+
+ion-scroll {
+  white-space: nowrap;
+  height: 140px;
+  padding-right: 0px !important;
+  margin-left: 24px !important; 
+  margin-top: 9px !important;
+}
+
+.session-black-title-font {
+  color: #252A26;
+  font-family: "Oswald Regular";
+  font-size: 18px;
+  line-height: 25px;
+
+  margin-left: 24px;
+}
+
+.black-body {
+  color: #252A26;
+  font-family: "Oswald Regular";
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.session-view-tab-font {
+  color: #252A26;
+  font-family: "Oswald Regular";
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.category-font {
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+/* position */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.premium-duration {
+  left: 24px;
+  bottom: 120px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 19px;
+}
+
+.premium-time {
+  left: 24px;
+  bottom: 91px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+.premium-subcategory {
+  left: 24px;
+  bottom: 38px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 41px;
+}
+
+.premium-instructor {
+  left: 24px;
+  bottom: 22px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: "Oswald Regular";
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.premium-price {
+  position: absolute;
+  bottom: 40px;
+  right: 24px;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 35px;
+}
+
+.premium-people-no {
+  color: #FFFFFF;
+  font-family: "Oswald Regular";
+  font-size: 12px;
+  line-height: 16px;
+
+  padding-left: 4px;
+  bottom: 22px;
+  position: absolute;
+}
+
+.vertical-line {
+  box-sizing: border-box;
+  height: 10px;
+  width: 0.5px;
+  border: 1px solid #FFFFFF;
+
+  margin-left: 7px;
+  bottom: 25px;
+  position: absolute;
+}
+
+.premium-dumbbell {
+  left: 291px;
+  bottom: 22px;
+
+  position: absolute;
+}
+
+.session-time {
+  bottom: 65px;
+  left: 16px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 19px;
+}
+
+.session-subcategory {
+  bottom: 30px;
+  left: 16px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+.session-instructor {
+  bottom: 10px;
+  left: 16px;
+  position: absolute;
+
+  opacity: 0.7;
+  color: #FFFFFF;
+  font-family: "Oswald Regular";
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.session-price {
+  bottom: 30px;
+  left: 225px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+.search-bar {
+  height: 64px;
+  width: 376px;
+  background-color: rgba(248,248,248,0.82);
+  box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+
+  color: #898989;
+  font-family: "Oswald Regular";
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.session-dumbbell {
+  left: 199px;
+  top: 10px;
+
+  position: absolute;
+}
+
+.light-gray-thin {
+  height: 6px;
+  width: 375px;
+  background-color: rgba(248,248,248,0.82);
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.session {
+  display: inline-block;
+  width: 80vw;
+}
+
+.search-bar {
+  height: 64px;
+  width: 376px;
+  background-color: rgba(248,248,248,0.82);
+  box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+}
+
+.search-bar-icon {
+  margin-left: 24px;
+  margin-top: 37px;
+
+  float: left;
+  display: inline-block;
+}
+
+.search-bar-text {
+  color: #898989;
+  font-family: "Oswald Regular";
+  font-size: 16px;
+  line-height: 22px;
+
+  margin-left: 8px;
+  margin-top: 32px;
+  display: inline-block;
+}
+
+.microphone {
+  margin-left: 251px;
+  margin-top: 33.46px;
+
+  display: inline-block;
+}
+
+</style>
+
+<ion-content>
+  <div class="search-bar">
+    <img class="search-bar-icon" src="assets/imgs/search-icon.png">
+    <div class="search-bar-text">Search</div>
+    <img class="microphone" src="assets/imgs/microphone.png">
+  </div>
+
 	<ion-slides pager>
-	  <ion-slide *ngFor="let premium of premiums">
-  		<ion-row>
-  			<p>Premium Class</p>
-  		</ion-row>
-  		<ion-row>
-  			<ion-col>
-  				<h3>Live in {{ premium.time }}</h3>
-  			</ion-col>
-  			<ion-col>
-  				<h1>${{ premium.price }}</h1>
-  			</ion-col>
-  		</ion-row>
-  		<ion-row>
-   			<ion-col>
-   				<h1>{{ premium.subcategory }}</h1>
-  			</ion-col>
-  			<ion-col>
-  				<p>{{ premium.duration }}</p>
-  			</ion-col>
-  		</ion-row>
-  		<ion-row>
-  			<ion-col>
-  				<p>By {{ premium.instructor }}</p>
-  			</ion-col>
-  			<ion-col>
-  				<p>{{ premium.students_no }} people registered</p>
-  			</ion-col>
-  		</ion-row>
-
-	  </ion-slide>
+    <div *ngFor="let premium of premiums" class="wrapper"
+          [navPush]="sessionPage"
+      [navParams]="premium">
+      <ion-slide>
+        <img src="{{ premium.image }}">
+        <div class="premium-duration">
+          Live in 1hr
+        </div>
+        <div class="premium-time">
+          {{ premium.start_time }}-{{ premium.end_time }}
+        </div>
+        <div class="premium-subcategory">
+          {{ premium.subcategory }}
+        </div>
+        <div>
+        <div class="premium-instructor">
+          By {{ premium.instructor }} | 10 people regosterd
+        </div >
+      </div>
+        <div class="premium-price">
+  				{{ premium.price }}
+        </div>
+        <div class="premium-dumbbell">
+          <img src='assets/imgs/dumbbell-white.png'>
+          <img src='assets/imgs/dumbbell-white.png'>
+          <img src='assets/imgs/dumbbell-white-blank.png'>
+        </div>
+      </ion-slide>
+    </div>
 	</ion-slides>
+ 
+  <!--Picks for You-->
+  <div>
+  <ion-row>
+    <ion-col>
+      <div text-left>
+        <div class="session-black-title-font">Picks for You</div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div text-right class="black-body" (click)="onGoToFilter1()">
+        View All
+        <ion-icon name="arrow-forward"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+</div>
 
-	<ion-list>
-		<ion-item 
-		*ngFor="let sessionGroup of sessionCollection">
-			<h3>{{ sessionGroup.category }}</h3>
-			<button
-			ion-item
-			border
-			*ngFor="let session of sessionGroup.sessions"
-			[navPush]="sessionPage"
-			[navParams]="session">
-				<h3>{{ session.duration }}</h3>
-				<h3>{{ session.subcategory }}</h3>
-			</button>
-		</ion-item>
-	</ion-list>
+  <ion-scroll scrollX="true">
+      <div
+      *ngFor="let session of pickedSessions"
+      [navPush]="sessionPage"
+      [navParams]="session"
+      class="wrapper session">
+        <img src="{{ session.image }}">
+        <div class="session-time">
+         Today {{ session.start_time }} - {{ session.end_time }}
+        </div>
+        <div class="session-subcategory">
+          {{ session.subcategory }}
+        </div>
+        <div class="session-instructor">
+          By {{ session.instructor }} | {{ session.student_no }} people registered
+        </div>
+        <div class="session-price">
+          {{ session.price }}
+        </div>
+        <div class="session-dumbbell">
+          <img src='assets/imgs/dumbbell-white.png'>
+          <img src='assets/imgs/dumbbell-white.png'>
+          <img src='assets/imgs/dumbbell-white-blank.png'>
+        </div>
+      </div>
+  </ion-scroll>
+
+  <div class="light-gray-thin"></div>
+
+  <!--Free Sessions-->
+  <div>
+  <ion-row>
+    <ion-col>
+      <div text-left>
+        <div class="session-black-title-font">Free Sessions</div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div text-right class="black-body" (click)="onGoToFilter2()">
+        View All
+        <ion-icon name="arrow-forward"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+</div>
+
+  <ion-scroll scrollX="true">
+      <div
+      *ngFor="let session of freeSessions"
+      [navPush]="sessionPage"
+      [navParams]="session"
+      class="wrapper session">
+        <img src="{{ session.image }}">
+        <div class="session-time">
+         Today {{ session.start_time }} - {{ session.end_time }}
+        </div>
+        <div class="session-subcategory">
+          {{ session.subcategory }}
+        </div>
+        <div class="session-instructor">
+          By {{ session.instructor }} {{ session.student_no }} people registered
+        </div>
+        <div class="session-price">
+          {{ session.price }}
+        </div>
+        <div class="session-dumbbell">
+          <img src='assets/imgs/dumbbell-white.png'>
+          <img src='assets/imgs/dumbbell-white.png'>
+          <img src='assets/imgs/dumbbell-white-blank.png'>
+        </div>
+      </div>
+  </ion-scroll>
+<div class="light-gray-thin"></div>
+
+  <!--View by Goal-->
+    <div class="session-black-title-font" style="margin-bottom: 9px;">View by Goal</div>
+    <div class="container" *ngFor="let sessionGroup of sessionByGoalCollection">
+      <img src="{{ sessionGroup.image }}">
+      <div class="centered">
+        <div class="category-font">{{ sessionGroup.goal }}</div>
+      </div>
+    </div>
+
+    <div class="light-gray-thin"></div>
+
+  <!--View by Type-->
+  <div class="session-black-title-font" style="margin-top: 24px; margin-bottom: 9px;" >View by Type</div>
+  <ion-row style="margin-left: 13px; margin-bottom: 11px">
+    <div style="margin-left: 11px; margin-bottom: 9px" class="container" *ngFor="let sessionGroup of sessionByTypeCollection">
+      <img src="{{ sessionGroup.image }}">
+      <div class="centered">
+        <div class="category-font">{{ sessionGroup.category }}</div>
+      </div>
+    </div>
+  </ion-row>
+
 </ion-content>

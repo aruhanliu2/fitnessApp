@@ -1,32 +1,369 @@
-<ion-header>
-  <ion-navbar>
-  </ion-navbar>
-</ion-header>
+<style>
 
-<ion-content padding>
-	<ion-slides pager>
-	  <ion-slide>
-	  </ion-slide>
-	  <ion-slide>
-	  </ion-slide>
-	</ion-slides>
+/*font*/
 
-	<h1>{{ trainer.person }}</h1>
-	<p>{{ trainer.objective }}</p>
-	<ion-item>
-		<h3>Intro</h3>
-		<h3>{{ trainer.introduction }}</h3>
-	</ion-item>
-	<ion-item>
-		<h3>Location</h3>
-		<h3>{{ trainer.location }}</h3>
-	</ion-item>
-	<ion-item>
-		<h3>Certifications</h3>
-		<h3>{{ trainer.certifications }}</h3>
-	</ion-item>
-	<ion-item>
-		<h3>Contact</h3>
-		<h3>{{ trainer.contact }}</h3>
-	</ion-item>
+.no-padding {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.trainer {
+	left: 24px;
+	top: 93px;
+	position: absolute;
+
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+}
+
+.light-gray-thin {
+	height: 6px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.back-white {
+	position: absolute;
+	margin-left: 19px;
+	margin-top: 15px;
+}
+
+/*position*/
+.wrapper {
+	position: relative;
+}
+
+
+.black-title {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 18px;
+	line-height: 25px;
+	margin-left: 24px;
+	margin-top: 14px;
+}
+
+.black-body {
+	color: #252A26;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+
+	margin-left: 25px;
+	margin-top: 9px;
+}
+
+.certification {
+	color: #252A26;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+
+	margin-left: 6px;
+	margin-top: 9px;
+}
+
+.segment {
+	font-family: Oswald-Regular;
+	font-size: 16px;
+	color: #313732;
+	letter-spacing: 0.29px;
+}
+
+.light-gray-thin {
+	height: 6px;
+	width: 375px;
+	background-color: rgba(248,248,248,0.82);
+
+	margin-top: 20px;
+}
+
+.black-body {
+	color: #252A26;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.gray-body {
+	color: #898989;
+	font-family: "SF Pro Text";
+	font-size: 12px;
+	line-height: 19px;
+}
+
+.session-black-title-font {
+  color: #252A26;
+  font-family: "Oswald Regular";
+  font-size: 18px;
+  line-height: 25px;
+
+  margin-left: 24px;
+}
+
+.session-view-tab-font {
+  color: #252A26;
+  font-family: "Oswald Regular";
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.category-font {
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+.session-time {
+  bottom: 65px;
+  left: 16px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 19px;
+}
+
+.session-subcategory {
+  bottom: 30px;
+  left: 16px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+.session-instructor {
+  bottom: 10px;
+  left: 16px;
+  position: absolute;
+
+  opacity: 0.7;
+  color: #FFFFFF;
+  font-family: "Oswald Regular";
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.session-price {
+  bottom: 30px;
+  left: 225px;
+  position: absolute;
+
+  color: #FFFFFF;
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+.search-bar {
+  height: 64px;
+  width: 376px;
+  background-color: rgba(248,248,248,0.82);
+  box-shadow: 0 0.5px 0 0 rgba(0,0,0,0.3);
+
+  color: #898989;
+  font-family: "Oswald Regular";
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.session-dumbbell {
+  left: 199px;
+  top: 10px;
+
+  position: absolute;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.session {
+  display: inline-block;
+  width: 80vw;
+}
+
+ion-scroll {
+  white-space: nowrap;
+  height: 140px;
+  padding-right: 0px !important;
+  margin-left: 24px !important; 
+  margin-top: 9px !important;
+}
+
+.title-font {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 18px;
+	line-height: 25px;
+
+	margin-left: 24px;
+	float: left;
+}
+
+.view-all {
+	color: #252A26;
+	font-family: "Oswald Regular";
+	font-size: 14px;
+	line-height: 19px;
+
+	display: inline-block;
+}
+
+.star {
+	left: 24px;
+	top: 126px;
+	position: absolute;
+}
+.white-text {
+	color: #FFFFFF;
+	font-family: "SF Pro Text";
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 19px;
+	position: absolute;
+}
+
+</style>
+
+<ion-content>
+    <div class="wrapper" style="margin-top: 20px" >
+    	<img (click)="viewImage()" style="position: absolute" src="assets/imgs/premium.png">
+    	<div class="back-white" (click)="onGoBack()">
+    		<img src="assets/imgs/back-white.png">
+    	</div>
+    	<div (click)="viewImage()" class="trainer">
+    		{{ trainer.name }}
+    	</div>
+    	<ion-row class="star">
+    		<img src='assets/imgs/star-white.png'>
+    		<img src='assets/imgs/star-white.png'>
+    		<img src='assets/imgs/star-white.png'>
+    		<img src='assets/imgs/star-white.png'>
+    		<img src='assets/imgs/star-white-half.png'>
+    		<div style="left: 75px;" class="white-text">(4)</div>
+    	</ion-row>
+    	<div style="left: 24px; top: 147px" class="white-text">{{ trainer.objective }}</div>
+    </div>
+
+	<ion-segment mode="md" style="height: 49px; margin-top: 206px;" [(ngModel)]="segment" color="#FFFFFF">
+	    <ion-segment-button value="info">
+	      <div class="segment">Info</div>
+	    </ion-segment-button>
+	    <ion-segment-button value="reviews">
+	      <div class="segment">Reviews</div>
+	    </ion-segment-button>
+	    <ion-segment-button value="services">
+	      <div class="segment">Services</div>
+	    </ion-segment-button>
+	</ion-segment>
+
+<div [ngSwitch]="segment">
+  <ion-list *ngSwitchCase="'info'">
+    <div style="margin-top: 20px">
+		<!--slogan-->
+		<div class="black-title">{{ trainer.slogan }}</div>
+		<div class="light-gray-thin"></div>
+
+		<!--focus-->
+		<div class="black-title">Focus</div>
+		<div class="black-body">{{ trainer.focus }}</div>
+		<div class="light-gray-thin"></div>
+
+		<!--introduction-->
+		<div class="black-title">About {{ trainer.name }}</div>
+		<div class="black-body">{{ trainer.introduction }}</div>
+		<div class="light-gray-thin"></div>
+
+		<!--certification-->
+		<div class="black-title">Certifications</div>
+		<ion-row>
+			<img style="margin-bottom: 14px; margin-top: 9px; margin-left: 24px" src="assets/imgs/certification-icon.png">
+			<div class="certification">{{ trainer.certification }}</div>
+		</ion-row>
+	</div>
+  </ion-list>
+
+  <div *ngSwitchCase="'reviews'" style="margin-top: 20px">
+	<ion-row *ngFor="let review of trainer.reviews">
+			<div style="float: left">
+				<img style="margin-left: 31px;" src="{{ review.image_profile }}">
+				<div style="text-align: center" class="black-body">{{ review.trainee }}</div>
+			</div>
+
+			<div style="float: right; display: inline-block;">
+					<div style="margin-left: 25px;">
+				    	<img src="assets/imgs/star.png">
+				    	<img src="assets/imgs/star.png">
+				    	<img src="assets/imgs/star.png">
+				    	<img src="assets/imgs/star.png">
+				    	<img src="assets/imgs/star-half.png">
+		    		</div>
+	    			<div style="margin-left: 25px; margin-top: 6px" class="gray-body">{{ review.date }}</div>
+	    			<div style="margin-left: 25px; width: 265px" class="black-body">{{ review.comment }}</div>
+			</div>
+			<div class="light-gray-thin"></div>
+	</ion-row>
+ </div>
+
+  <ion-list *ngSwitchCase="'services'">
+  <!--Free Sessions-->
+
+	<ion-row>
+		<div style="margin-top: 19px;" class="title-font">Group Sessions</div>
+		<div style="margin-left: 149px; margin-top: 22px" class="view-all">View all</div>
+		<img style="height: 13px; width: 6.5px; margin-left: 5px; margin-top: 26px" src="assets/imgs/forward-black.png">
+	</ion-row>
+
+  <ion-scroll scrollX="true">
+      <div
+      *ngFor="let session of groupSessions"
+      [navPush]="sessionPage"
+      [navParams]="session"
+      class="wrapper session">
+        <img src="{{ session.image }}">
+        <div class="session-time">
+         Today {{ session.start_time }} - {{ session.end_time }}
+        </div>
+        <div class="session-subcategory">
+          {{ session.subcategory }}
+        </div>
+        <div class="session-instructor">
+          By {{ session.instructor }} {{ session.student_no }} people registered
+        </div>
+        <div class="session-price">
+          {{ session.price }}
+        </div>
+        <div class="session-dumbbell">
+          <img src='assets/imgs/dumbbell-white.png'>
+          <img src='assets/imgs/dumbbell-white.png'>
+          <img src='assets/imgs/dumbbell-white-blank.png'>
+        </div>
+      </div>
+  </ion-scroll>
+	<div class="light-gray-thin"></div>
+	<div style="margin-top: 19px;" class="title-font">Personal Training</div>
+	<img [navPush]="tcalendarPage" style="margin-top: 9px" src="assets/imgs/trainer-calendar.png">
+ </ion-list>
+</div>
+
 </ion-content>
+
+
+
+

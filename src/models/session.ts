@@ -1,15 +1,21 @@
+import { Item } from '../models/item';
+
 export class Session {
 	constructor(public subcategory: string,
 		public type: string,
+		public introduction: string,
 		public duration: string,
 		public image: string,
 		public instructor: string,
-		public target: string,
 		public equipment: string,
-		public time: string,
-        public difficulty: string,
+		public target: string,
+		public calories: string,
+		public start_time: string,
+		public end_time: string,
+        public intensity: string,
         public level: string,
-        public price: '50',
-        public student_no: '10',
-		){};
+        public tag: string,
+        public price: string,
+        public student_no: string,
+        public items: Item[]){}
 }

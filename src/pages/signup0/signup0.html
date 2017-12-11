@@ -1,0 +1,88 @@
+<style>
+.signup {
+	height: 55px;
+	width: 273px;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	margin-left: 51px;
+	margin-top: 458px;
+
+	position: absolute;
+}
+
+.signup-text {
+	color: #FC3F1B;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+	text-align: center;
+
+	margin-top: 14px;
+}
+
+.login {
+	height: 55px;
+	width: 273px;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	margin-left: 51px;
+	margin-top: 566px;
+
+	position: absolute;
+}
+
+.login-text {
+	color: #FFFFFF;
+	font-family: Oswald;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 27px;
+	text-align: center;
+
+	margin-top: 14px;
+}
+
+.text {
+	color: #FFFFFF;
+	font-family: "SF Pro Text";
+	font-size: 16px;
+
+	margin-left: 93px;
+	padding-top: 533px;
+
+	position: absolute;
+
+}
+
+.big-text {
+	opacity: 0.1;
+	font-family: Oswald-Demi-BoldItalic;
+	font-size: 130px;
+	color: #FFFFFF;
+	line-height: 120px;
+	letter-spacing: 2.29px;
+	margin-top: 104px;
+	position: absolute;
+}
+
+.background {
+	background: linear-gradient(-179deg, #FE8C00 0%, #F83600 100%);
+	height: 667px;
+	width: 375px;
+
+	position: relative;
+}
+
+</style>
+<ion-content class="background">
+	<div class="big-text">Hit Your Fit.</div>
+	<div (click)="onGoToSignUp()" class="signup">
+		<div class="signup-text">Sign Up</div>
+	</div>
+	<div class="text">Already have an account?</div>
+	<div class="login" (click)="onGoToSignIn()">
+		<div class="login-text">Log In</div>
+	</div>
+</ion-content>

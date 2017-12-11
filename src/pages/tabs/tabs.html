@@ -1,0 +1,14 @@
+<style>
+.ion-ios-customicon-outline,
+.ion-ios-customicon,.ion-md-customicon,.ion-md-customicon-outline {
+  content: url('assets/imgs/tab-training.png');
+}
+
+</style>
+
+<ion-tabs selectedIndex="0">
+	<ion-tab [root]="trainingPage" tabsHideOnSubPages="true" tabTitle="My Training" tabIcon="body"></ion-tab>
+	<ion-tab [root]="featuredPage" tabsHideOnSubPages="true" tabTitle="Discover" tabIcon="star"></ion-tab>
+	<ion-tab [root]="trainersPage" tabsHideOnSubPages="true" tabTitle="Trainers" tabIcon="search"></ion-tab>
+	<ion-tab [root]="profilePage" tabsHideOnSubPages="true" tabTitle="Profile" tabIcon="contact"></ion-tab>
+</ion-tabs>
